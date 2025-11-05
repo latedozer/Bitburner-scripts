@@ -7,7 +7,7 @@ export async function main(ns: NS) {
         do {
             i++
         } while (ns.getPurchasedServerCost(2 ** (i + 1)) < ns.getPlayer().money && i < 21);
-        if (i > 32) {
+        if (2**i > 32) {
             ns.purchaseServer("host", 2 ** i);
         }
         return;
