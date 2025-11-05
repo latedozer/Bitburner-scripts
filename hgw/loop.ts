@@ -42,7 +42,7 @@ export async function main(ns: NS) {
                 if (ns.getServer('host').maxRam !== 2 ** 20) {
                   ns.run(c.filePath(c.buyServerFile))
                 }
-              }5
+              }
               else {
                 ns.run(c.filePath(c.buyServerFile))
               }
@@ -65,12 +65,12 @@ export async function main(ns: NS) {
 async function checkServer(ns: NS, dest: Server) {
     let upDest = ns.getServer(dest.hostname);
     if ((upDest.hackDifficulty as number) - (upDest.minDifficulty as number) > 0.01) {
-        ns.toast("unable to weaken fast enough");
+        ns.toast("unable to weaken fast enough", 'info', 10000);
     }
     if (upDest.moneyAvailable! / upDest.moneyMax! > 1.01) {
-        ns.toast("unable to grow fast enough");
+        ns.toast("unable to grow fast enough", 'info', 10000);
     }
-    ns.toast("batching checked")
+    ns.toast("batching checked", 'success', 10000)
 }
 
 
