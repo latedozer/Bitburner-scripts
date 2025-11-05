@@ -15,6 +15,10 @@ const constPath = c.filePath(c.constFile);
 export async function main(ns: NS) {
 
   while (true) {
+    if(ns.fileExists("Formulas.exe")){
+      ns.run(c.filePath(c.loopFile));
+      return;
+    }
     // 1:10:2 hack:grow:weaken
     let ramCost = (hacks * 1.7) + (grows * 1.75 * 2) + (weaks * 1.75 * 3);
     let hostServ: c.max = await ns.peek(c.hostServ);
