@@ -6,9 +6,8 @@ const SA = c.filePath(c.startScripts[2]);
 const FH = c.filePath(c.startScripts[3]);
 const LP = c.filePath(c.startScripts[5]);
 export async function main(ns: NS) {
-
-  if(ns.args[0] === 1){
-    for(let i = 1; i < c.maxPort; i++){
+  if (ns.args[0] === 1) {
+    for (let i = 1; i < c.maxPort; i++) {
       await ns.clearPort(i);
     }
     await ns.killall('home', true);
@@ -41,7 +40,7 @@ export async function main(ns: NS) {
     } while (data === "NULL PORT DATA");
   }
 
-  if(!ns.scriptRunning(LP, "home")){
+  if (!ns.scriptRunning(LP, "home")) {
     await ns.run(LP);
   }
 

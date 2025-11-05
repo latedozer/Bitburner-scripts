@@ -20,7 +20,7 @@ export async function main(ns: NS) {
     let hostServ: c.max = await ns.peek(c.hostServ);
     let bestServ: c.max = await ns.peek(c.bestServ);
     if (ns.getServerMaxRam(hostServ.name) - (ns.getServerUsedRam(hostServ.name)) > ramCost * 10) {
-      if (!ns.fileExists(constPath, hostServ.name) || !ns.fileExists(c.filePath(c.weakFile), hostServ.name) || !ns.fileExists(c.filePath(c.growFile), hostServ.name) || !ns.fileExists(hackPath, hostServ.name)) {
+      if (!ns.fileExists(constPath, hostServ.name) || !ns.fileExists(weakPath, hostServ.name) || !ns.fileExists((growPath), hostServ.name) || !ns.fileExists(hackPath, hostServ.name)) {
         ns.scp([constPath, hackPath, growPath, weakPath], hostServ.name, "home");
       }
       for (let i = 0; i < 10; i++) {

@@ -24,6 +24,6 @@ export async function main(ns: NS) {
       }
     await ns.writePort(c.hostServ, max);
     await ns.print(max.name);
-    await ns.sleep(100);
+    await ns.sleep(1000);
   }
 }
