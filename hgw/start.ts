@@ -7,11 +7,12 @@ const FH = c.filePath(c.startScripts[3]);
 const BR = c.filePath(c.startScripts[4]);
 const LP = c.filePath(c.startScripts[5]);
 export async function main(ns: NS) {
-  if (ns.args[0] === 1) {
+  if (ns.args[0] === true) {
+        await ns.killall('home', true);
     for (let i = 1; i < c.maxPort; i++) {
       await ns.clearPort(i);
     }
-    await ns.killall('home', true);
+
   }
 
   let data;

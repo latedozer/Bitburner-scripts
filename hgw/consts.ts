@@ -1,5 +1,5 @@
 import { NS, Server } from '@ns';
-export const maxPort = 4;
+export const maxPort = 5;
 export const servList = 1;
 export const bestServ = 2;
 export const hostServ = 3;
@@ -13,10 +13,11 @@ export const buyFile = "buy.js";
 export const loopFile = "loop.js";
 export const constFile = "consts.js";
 export const bruteFile = "brute.js";
+export const buyServerFile = "serverBuy.js"
 export const portNull = "NULL PORT DATA";
 export const ports = ["BruteSSH.exe", "FTPCrack.exe", "relaySMTP.exe", "HTTPWorm.exe", "SQLInject.exe"];
 export const backdoors = ["CSEC", "avmnite-02h", "I.I.I.I", "run4theh111z", "w0r1d_d43m0n"];
-export const batchDelay = 10;
+export const batchDelay = 1;
 export const maxScripts = 400000;
 export type max = {
   name: string;

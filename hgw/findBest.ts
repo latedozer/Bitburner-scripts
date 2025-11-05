@@ -20,7 +20,7 @@ export async function main(ns: NS) {
           max = await check(ns, max, serv);
         }
         else {
-          await ns.run(c.buyFile);
+          await ns.run(c.filePath(c.buyFile));
           await ns.sleep(100);
           if (await portOpen(ns, serv, await ns.peek(c.portsHas))) {
             max = await check(ns, max, serv);
@@ -41,7 +41,7 @@ export async function main(ns: NS) {
 async function portOpen(ns: NS, serv: string, ports: number | string) {
   if (typeof ports != 'string') {
     if (ns.getServerNumPortsRequired(serv) <= ports) {
-      if (ns.fileExists("BruteSSH.exe"))
+      if (ns.fileExists("BruteSSH.exe"))7
         await ns.brutessh(serv);
       if (ns.fileExists("FTPCrack.exe"))
         await ns.ftpcrack(serv);
@@ -59,8 +59,9 @@ async function portOpen(ns: NS, serv: string, ports: number | string) {
 }
 
 async function check(ns: NS, max: c.max, serv: string) {
-
-  if (await ns.getServerRequiredHackingLevel(serv) <= await ns.getHackingLevel()) {
+  let hacking = ns.getHackingLevel()
+  let required = ns.getServerRequiredHackingLevel(serv)
+  if (required <= hacking) {
     let potential = await ns.getServer(serv).moneyMax;
     if (typeof potential === 'number') {
       if (potential > max.max) {

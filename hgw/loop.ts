@@ -38,16 +38,24 @@ export async function main(ns: NS) {
             ns.exec(growPath, host, GroThread, dest.hostname, weakTime - growT);
             ns.exec(weakPath, host, weakThread2, dest.hostname, 0);
         }
+        if (ns.serverExists("host")) {
+                if (ns.getServer('host').maxRam !== 2 ** 20) {
+                  ns.run(c.filePath(c.buyServerFile))
+                }
+              }5
+              else {
+                ns.run(c.filePath(c.buyServerFile))
+              }
         time2 = performance.now();
-        ns.print(time2 - time1);
         if(time2 - time1 > delay){
+            ns.print(time2 - time1);
+             await ns.sleep(delay);
             time1 = performance.now();
             time2 = performance.now();
-            await ns.sleep(10)
             count++;
         }
         //await ns.sleep(delay);
-        if (count > (60000 * minutes) / delay) {
+        if (count > (60000 * minutes) / (delay)) {
             checkServer(ns, dest);
             count = 0;
         }
