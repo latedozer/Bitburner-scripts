@@ -1,7 +1,7 @@
 import { NS } from '@ns';
 import * as c from './consts.js';
 
-const delay = 20;
+const delay = c.batchDelay + 10;
 const hacks = 1;
 const grows = 10;
 const weaks = 3;
@@ -16,7 +16,7 @@ export async function main(ns: NS) {
 
   while (true) {
     if(ns.fileExists("Formulas.exe")){
-      ns.run(c.filePath(c.loopFile));
+      ns.run(c.filePath(c.loopFile), 1, true);
       return;
     }
     // 1:10:2 hack:grow:weaken

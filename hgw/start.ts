@@ -42,7 +42,7 @@ export async function main(ns: NS) {
   }
 
   if (!ns.scriptRunning(LP, "home") && ns.fileExists('Formulas.exe')) {
-    await ns.run(LP);
+    await ns.run(LP, 1, true);
   }
   else{
     ns.run(c.filePath(c.buyFile));
