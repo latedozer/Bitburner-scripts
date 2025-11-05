@@ -12,6 +12,7 @@ export const weakFile = "weak.js";
 export const buyFile = "buy.js";
 export const loopFile = "loop.js";
 export const constFile = "consts.js";
+export const bruteFile = "brute.js";
 export const portNull = "NULL PORT DATA";
 export const ports = ["BruteSSH.exe", "FTPCrack.exe", "relaySMTP.exe", "HTTPWorm.exe", "SQLInject.exe"];
 export const backdoors = ["CSEC", "avmnite-02h", "I.I.I.I", "run4theh111z", "w0r1d_d43m0n"];
