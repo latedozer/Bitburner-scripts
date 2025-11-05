@@ -4,6 +4,7 @@ const folder = "/hgw/";
 const FB = c.filePath(c.startScripts[1]);
 const SA = c.filePath(c.startScripts[2]);
 const FH = c.filePath(c.startScripts[3]);
+const BR = c.filePath(c.startScripts[4]);
 const LP = c.filePath(c.startScripts[5]);
 export async function main(ns: NS) {
   if (ns.args[0] === 1) {
@@ -40,8 +41,12 @@ export async function main(ns: NS) {
     } while (data === "NULL PORT DATA");
   }
 
-  if (!ns.scriptRunning(LP, "home")) {
+  if (!ns.scriptRunning(LP, "home") && ns.fileExists('Formulas.exe')) {
     await ns.run(LP);
+  }
+  else{
+    ns.run(c.filePath(c.buyFile));
+    ns.run(c.filePath(c.bruteFile));
   }
 
 
